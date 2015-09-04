@@ -11,19 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
-  
-
-
-ActiveRecord::Schema.define(version: 20150904162647) do
-  
-  create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
+ActiveRecord::Schema.define(version: 20150904195222) do
 
   create_table "amenities", force: :cascade do |t|
     t.integer  "listing_id"
@@ -52,7 +40,6 @@ ActiveRecord::Schema.define(version: 20150904162647) do
     t.text     "description"
     t.integer  "price"
     t.integer  "user_id"
-    t.integer  "image_id"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at",   null: false
@@ -60,7 +47,19 @@ ActiveRecord::Schema.define(version: 20150904162647) do
   end
 
   add_index "listings", ["amenities_id"], name: "index_listings_on_amenities_id"
-  add_index "listings", ["image_id"], name: "index_listings_on_image_id"
   add_index "listings", ["user_id"], name: "index_listings_on_user_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "name"
+    t.text     "address"
+    t.string   "phone_number"
+    t.integer  "status",          default: 0
+    t.string   "avatar"
+    t.string   "confirm_token"
+  end
 
 end
