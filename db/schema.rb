@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20150904162647) do
+ActiveRecord::Schema.define(version: 20150904183002) do
 
   create_table "amenities", force: :cascade do |t|
     t.integer  "listing_id"
@@ -53,8 +52,14 @@ ActiveRecord::Schema.define(version: 20150904162647) do
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "name"
+    t.text     "address"
+    t.string   "phone_number"
+    t.integer  "status",          default: 0
+    t.string   "avatar"
+    t.string   "confirm_token"
   end
 
 end
