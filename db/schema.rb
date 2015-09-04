@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904162647) do
+ActiveRecord::Schema.define(version: 20150904183002) do
 
   create_table "amenities", force: :cascade do |t|
     t.integer  "listing_id"
