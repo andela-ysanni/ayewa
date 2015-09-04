@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   before_save { self.email = email.downcase }
   validates :address, :phone_number, :status, :avatar, presence: true
-
+  validates :password, presence: true, length: { within: 6..10 }, on: :create
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true,
                       format: { with: VALID_EMAIL_REGEX },
@@ -18,8 +18,6 @@ class User < ActiveRecord::Base
        self.confirm_token = nil
        save!(:validate => false)
   end
-
-
 
   private
   def generate_token
