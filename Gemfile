@@ -29,7 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
  gem 'carrierwave'
  gem 'figaro'
 
-gem 'carrierwave'
+# gem 'carrierwave'
 
 gem 'jquery-fileupload-rails'
 
