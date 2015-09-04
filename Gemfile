@@ -28,9 +28,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
  gem 'rmagick'
  gem 'carrierwave'
  gem 'figaro'
-
-gem 'carrierwave'
-
 gem 'jquery-fileupload-rails'
 
 # Use Unicorn as the app server

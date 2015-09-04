@@ -24,3 +24,4 @@ db/*.sqlite3-journal
 /config/application.yml
 
 app/codesnip
+public/uploads/*
