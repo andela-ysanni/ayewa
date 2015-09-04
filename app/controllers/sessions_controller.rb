@@ -6,8 +6,13 @@ class SessionsController < ApplicationController
   def create
     user =  User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to root_url, notice: 'signed in'
+      if user.active?
+        session[:user_id] = user.id
+        redirect_to root_url, notice: "signed in"
+      else
+        flash[:error] = "You account has not been verified"
+        render "new"
+      end    
     else
       flash[:error] = "Wrong email or password"
       render 'new'
