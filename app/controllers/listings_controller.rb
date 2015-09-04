@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :listing_params, only: [:create, :update]
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
