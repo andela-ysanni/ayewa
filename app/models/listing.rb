@@ -1,5 +1,8 @@
 class Listing < ActiveRecord::Base
-  belongs_to :amenities
+  has_many :amenities
   belongs_to :user
-  belongs_to :image
+  has_many :images
+  accepts_nested_attributes_for :images
+  enum status: [:opened, :closed]
+
 end
