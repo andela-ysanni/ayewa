@@ -2,38 +2,6 @@
 jQuery(document).ready(function () {
     "use strict";
 
-
-    //Gmap
-    if (jQuery().gMap) {
-      var lat = jQuery('#map').data('latitude')
-      var long = jQuery('#map').data('longitude')
-      var address = jQuery('#map').data('address')
-      var name = jQuery('#map').data('name')
-
-        jQuery('#map').gMap({
-            zoom: 16, //Integer: Level of zoom in to the map
-            markers: [
-                {
-                    // latitude: -2.2014,
-                    latitude: lat,
-                    longitude: long,
-                    // longitude: -80.9763,
-                },
-                {
-                    address: address,
-                    // address: "Guayaquil, Ecuador",
-                    html: name,
-                    icon: {
-                        image: "images/gmap_pin_grey.png",
-                        iconsize: [26, 46],
-                        iconanchor: [12,46]
-                    }
-                }
-            ],
-        });
-    }
-
-
     // Owl sliders
     if (jQuery().owlCarousel) {
         jQuery("#owl-gallery").owlCarousel({
@@ -392,6 +360,38 @@ jQuery(document).ready(function () {
             total = +opt1.val() + +opt2.val();
             jQuery(".guests-select .total").html(total);
         });
+
+
+      //Gmap
+      if (jQuery().gMap) {
+        var lat = jQuery('#map').data('latitude')
+        var long = jQuery('#map').data('longitude')
+        var address = jQuery('#map').data('address')
+        var name = jQuery('#map').data('name')
+
+          jQuery('#map').gMap({
+              zoom: 16, //Integer: Level of zoom in to the map
+              markers: [
+                  {
+                      // latitude: -2.2014,
+                      latitude: lat,
+                      longitude: long,
+                      // longitude: -80.9763,
+                  },
+                  {
+                      address: address,
+                      // address: "Guayaquil, Ecuador",
+                      html: name,
+                      icon: {
+                          image: "images/gmap_pin_grey.png",
+                          iconsize: [26, 46],
+                          iconanchor: [12,46]
+                      }
+                  }
+              ],
+          });
+      }
+
 
 
 });
