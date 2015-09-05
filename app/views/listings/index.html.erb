@@ -2,6 +2,7 @@
 
 <h1>Listing Listings</h1>
 
+<%= render 'search' %>
 <table>
   <thead>
     <tr>
@@ -11,11 +12,17 @@
 
   <tbody>
     <% @listings.each do |listing| %>
+    <div>
+      <div><%= listing.name %></div>
+      <div><%= listing.address %></div>
+      <div><%= listing.location %></div>
+      
       <tr>
         <td><%= link_to 'Show', listing %></td>
         <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
         <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    </div>
     <% end %>
   </tbody>
 </table>
