@@ -80,41 +80,10 @@
       <div class="col-sm-12">
         <h2 class="lined-heading"><span>Guests Favorite Rooms</span></h2>
       </div>
+    <% for listing in @listing %>
       <!-- Room -->
       <div class="col-sm-4">
-        <div class="room-thumb"><%= image_tag 'room-01.jpg', alt: 'room 1', class: 'img-responsive' %>
-          <div class="mask">
-            <div class="main">
-              <h5>Double bedroom</h5>
-              <div class="price">&euro; 99<span>a night</span></div>
-            </div>
-            <div class="content">
-              <p><span>A modern hotel room in Star Hotel</span> Nunc tempor erat in magna pulvinar fermentum. Pellentesque scelerisque at leo nec vestibulum.
-                malesuada metus.</p>
-              <div class="row">
-                <div class="col-xs-6">
-                  <ul class="list-unstyled">
-                    <li><i class="fa fa-check-circle"></i> Incl. breakfast</li>
-                    <li><i class="fa fa-check-circle"></i> Private balcony</li>
-                    <li><i class="fa fa-check-circle"></i> Sea view</li>
-                  </ul>
-                </div>
-                <div class="col-xs-6">
-                  <ul class="list-unstyled">
-                    <li><i class="fa fa-check-circle"></i> Free Wi-Fi</li>
-                    <li><i class="fa fa-check-circle"></i> Incl. breakfast</li>
-                    <li><i class="fa fa-check-circle"></i> Bathroom</li>
-                  </ul>
-                </div>
-              </div>
-              <a href="room-detail.html" class="btn btn-primary btn-block">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Room -->
-      <div class="col-sm-4">
-        <div class="room-thumb"><%= image_tag 'room-02.jpg', alt: 'room 1', class: 'img-responsive' %>
+        <div class="room-thumb"><%= image_tag listing.images[0].name_url(:thumbnail) %>
           <div class="mask">
             <div class="main">
               <h5>King Size Bedroom </h5>
@@ -144,38 +113,8 @@
           </div>
         </div>
       </div>
+      <% end %>
       <!-- Room -->
-      <div class="col-sm-4">
-        <div class="room-thumb"><%= image_tag 'room-03.jpg', alt: 'room 1', class: 'img-responsive' %>
-          <div class="mask">
-            <div class="main">
-              <h5>Single room</h5>
-              <div class="price">&euro; 120<span>a night</span></div>
-            </div>
-            <div class="content">
-              <p><span>A modern hotel room in Star Hotel</span> Nunc tempor erat in magna pulvinar fermentum. Pellentesque scelerisque at leo nec vestibulum.
-                malesuada metus.</p>
-              <div class="row">
-                <div class="col-xs-6">
-                  <ul class="list-unstyled">
-                    <li><i class="fa fa-check-circle"></i> Incl. breakfast</li>
-                    <li><i class="fa fa-check-circle"></i> Private balcony</li>
-                    <li><i class="fa fa-check-circle"></i> Sea view</li>
-                  </ul>
-                </div>
-                <div class="col-xs-6">
-                  <ul class="list-unstyled">
-                    <li><i class="fa fa-check-circle"></i> Free Wi-Fi</li>
-                    <li><i class="fa fa-check-circle"></i> Incl. breakfast</li>
-                    <li><i class="fa fa-check-circle"></i> Bathroom</li>
-                  </ul>
-                </div>
-              </div>
-              <a href="room-detail.html" class="btn btn-primary btn-block">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
