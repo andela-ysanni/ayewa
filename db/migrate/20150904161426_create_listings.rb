@@ -9,7 +9,7 @@ class CreateListings < ActiveRecord::Migration
       t.text :description
       t.integer :price
       t.references :user, index: true, foreign_key: true
-      t.references :image, index: true, foreign_key: true
+      # t.references :image, index: true, foreign_key: true
       t.float :latitude
       t.float :longitude
 
