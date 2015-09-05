@@ -27,8 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
  gem 'bcrypt', '~> 3.1.7'
  # gem 'rmagick'
 gem 'mini_magick', '~> 4.2.10'
- gem 'carrierwave'
- gem 'figaro'
+gem 'carrierwave'
+gem 'figaro'
 
 gem 'jquery-fileupload-rails'
 

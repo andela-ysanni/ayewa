@@ -51,11 +51,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
   version :standard do
-    process :resize_to_fill => [250, 250, :north]
+    process :resize_to_fill => [500, 400]
   end
 
   version :thumbnail do
-    process :resize_to_fill => [50, 50]
+    process :resize_to_fill => [356, 228]
   end
 
 end
