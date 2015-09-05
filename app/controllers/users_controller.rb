@@ -41,8 +41,7 @@ class UsersController < ApplicationController
       user = User.find_by_confirm_token(params[:id])
       if user
         user.email_activate
-        flash[:success] = "Welcome to the AYEWA Your email has been confirmed.
-        Please sign in to continue."
+        flash[:success] = "Welcome to the AYEWA Your email has been confirmed."
         session[:user_id] = user.id
         redirect_to user
       else
