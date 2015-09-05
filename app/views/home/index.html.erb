@@ -83,7 +83,7 @@
     <% for listing in @listing %>
       <!-- Room -->
       <div class="col-sm-4">
-        <div class="room-thumb"><%= image_tag listing.images[0].name_url(:thumbnail) %>
+        <div class="room-thumb"><%= image_tag listing.images[0].name_url, alt: 'room 1', class: 'img-responsive' %>
           <div class="mask">
             <div class="main">
               <h5>King Size Bedroom </h5>
@@ -113,7 +113,7 @@
           </div>
         </div>
       </div>
-      <% end %>
+     <% end %>
       <!-- Room -->
     </div>
   </div>
