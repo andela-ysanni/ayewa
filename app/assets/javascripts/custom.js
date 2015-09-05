@@ -5,29 +5,31 @@ jQuery(document).ready(function () {
 
     //Gmap
     if (jQuery().gMap) {
+      var lat = jQuery('#map').data('latitude')
+      var long = jQuery('#map').data('longitude')
+      var address = jQuery('#map').data('address')
+      var name = jQuery('#map').data('name')
+
         jQuery('#map').gMap({
             zoom: 16, //Integer: Level of zoom in to the map
-            markers: [{
-                address: "Calle Hamburgo, Las Palmas, Spanje", //Address of the company
-                html: "<h4>Our hotel</h4><p>This is our hotel</p>", //Quicktip
-                popup: false, //Boolean
-                scrollwheel: false, //Boolean
-                maptype: 'TERRAIN', //Choose between: 'HYBRID', 'TERRAIN', 'SATELLITE' or 'ROADMAP'.
-                icon: {
-                    image: "images/ui/gmap-icon.png",
-                    iconsize: [42, 53],
-                    iconanchor: [12, 46]
+            markers: [
+                {
+                    // latitude: -2.2014,
+                    latitude: lat,
+                    longitude: long,
+                    // longitude: -80.9763,
                 },
-
-                controls: {
-                    panControl: false, //Boolean
-                    zoomControl: false, //Boolean
-                    mapTypeControl: true, //Boolean
-                    scaleControl: true, //Boolean
-                    streetViewControl: true, //Boolean
-                    overviewMapControl: false //Boolean
+                {
+                    address: address,
+                    // address: "Guayaquil, Ecuador",
+                    html: name,
+                    icon: {
+                        image: "images/gmap_pin_grey.png",
+                        iconsize: [26, 46],
+                        iconanchor: [12,46]
+                    }
                 }
-            }]
+            ],
         });
     }
 
@@ -232,14 +234,14 @@ jQuery(document).ready(function () {
  window.onload = function () {
     if (jQuery().isotope) {
         // cache container
-        var jQuerycontainer1 = jQuery('.room-list');
-        // initialize isotope
-        jQuerycontainer1.isotope({
-            filter: '*',
-            masonry: {
-                columnWidth: 1
-            }
-        });
+        // var jQuerycontainer1 = jQuery('.room-list');
+        // // initialize isotope
+        // jQuerycontainer1.isotope({
+        //     filter: '*',
+        //     masonry: {
+        //         columnWidth: 1
+        //     }
+        // });
 
         // filter items when filter link is clicked
         jQuery('#filters a').click(function () {
@@ -398,8 +400,9 @@ jQuery(document).ready(function () {
 jQuery(document).ready(function(){
 
   if(window.location.pathname == '/listings'){
-      console.log('welcome')
     jQuery('#reservation-form').css({'margin-top': '10px'})
-
+    // jQuery('.room-list .isotope').css({'height': '380px'})
   }
+
+
 });

@@ -11,10 +11,10 @@
         <div class="row">
           <div class="col-sm-12">
             <ol class="breadcrumb">
-              <li><a href="index.html">Home</a></li>
-              <li class="active">Rooms list view</li>
+              <li><%= link_to 'Home', root_path%></li>
+              <li class="active">Listings</li>
             </ol>
-            <h1>Rooms list view</h1>
+            <h1>Listings<%#= all_listings_or_search %></h1>
           </div>
         </div>
       </div>
@@ -24,19 +24,6 @@
 
 <!-- Filter -->
 <%= render partial: 'layouts/search' %>
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <ul class="nav nav-pills" id="filters">
-        <li class="active"><a href="#" data-filter="*">All</a></li>
-        <li><a href="#" data-filter=".single">Single Room</a></li>
-        <li><a href="#" data-filter=".double">Double Room</a></li>
-        <li><a href="#" data-filter=".executive">Executive Room</a></li>
-        <li><a href="#" data-filter=".apartment">Apartment</a></li>
-      </ul>
-    </div>
-  </div>
-</div> -->
 
 <!-- Rooms -->
 <section class="rooms mt100">
@@ -46,12 +33,13 @@
       <% @listings.each do |listing|%>
       <%# 12.times do %>
         <div class="col-sm-4">
-          <div class="room-thumb"><%= image_tag("room-01.jpg", alt: 'room 1', class: 'img-responsive')%>
+          <div class="room-thumb"><%= image_tag listing.images[0].name_url, alt: 'room 1', class: 'img-responsive' %>
             <div class="mask">
               <div class="main">
-                <%= listing.name %>
+                <%= content_tag :h5, listing.name%>
+                <%#= listing.name %>
                 <!-- <h5>Double bedroom</h5> -->
-                <div class="price"><%= listing.price %></div>
+                <div class="price"><%= number_to_currency listing.price, unit: "₦", separator: '.' %></div>
               </div>
               <div class="content">
                 <p><span><%= listing.description %></p>
