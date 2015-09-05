@@ -86,29 +86,12 @@
         <div class="room-thumb"><%= image_tag listing.images[0].name_url, alt: 'room 1', class: 'img-responsive' %>
           <div class="mask">
             <div class="main">
-              <h5>King Size Bedroom </h5>
-              <div class="price">&euro; 149<span>a night</span></div>
+              <h5><%= listing.name %></h5>
+              <div class="price"><%=number_to_currency listing.price, unit: "₦", separator: "," %><span><%= listing.location %></span></div>
             </div>
             <div class="content">
-              <p><span>A modern hotel room in Star Hotel</span> Nunc tempor erat in magna pulvinar fermentum. Pellentesque scelerisque at leo nec vestibulum.
-                malesuada metus.</p>
-              <div class="row">
-                <div class="col-xs-6">
-                  <ul class="list-unstyled">
-                    <li><i class="fa fa-check-circle"></i> Incl. breakfast</li>
-                    <li><i class="fa fa-check-circle"></i> Private balcony</li>
-                    <li><i class="fa fa-check-circle"></i> Sea view</li>
-                  </ul>
-                </div>
-                <div class="col-xs-6">
-                  <ul class="list-unstyled">
-                    <li><i class="fa fa-check-circle"></i> Free Wi-Fi</li>
-                    <li><i class="fa fa-check-circle"></i> Incl. breakfast</li>
-                    <li><i class="fa fa-check-circle"></i> Bathroom</li>
-                  </ul>
-                </div>
-              </div>
-              <a href="room-detail.html" class="btn btn-primary btn-block">Read More</a>
+              <p><%= listing.description %></p>
+              <%= link_to "Read More", listing,  class:"btn btn-primary btn-block" %>
             </div>
           </div>
         </div>
