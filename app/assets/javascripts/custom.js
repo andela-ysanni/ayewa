@@ -2,32 +2,34 @@
 jQuery(document).ready(function () {
     "use strict";
 
-	
+
     //Gmap
     if (jQuery().gMap) {
+      var lat = jQuery('#map').data('latitude')
+      var long = jQuery('#map').data('longitude')
+      var address = jQuery('#map').data('address')
+      var name = jQuery('#map').data('name')
+
         jQuery('#map').gMap({
             zoom: 16, //Integer: Level of zoom in to the map
-            markers: [{
-                address: "Calle Hamburgo, Las Palmas, Spanje", //Address of the company
-                html: "<h4>Our hotel</h4><p>This is our hotel</p>", //Quicktip
-                popup: false, //Boolean	
-                scrollwheel: false, //Boolean
-                maptype: 'TERRAIN', //Choose between: 'HYBRID', 'TERRAIN', 'SATELLITE' or 'ROADMAP'.
-                icon: {
-                    image: "images/ui/gmap-icon.png",
-                    iconsize: [42, 53],
-                    iconanchor: [12, 46]
+            markers: [
+                {
+                    // latitude: -2.2014,
+                    latitude: lat,
+                    longitude: long,
+                    // longitude: -80.9763,
                 },
-
-                controls: {
-                    panControl: false, //Boolean
-                    zoomControl: false, //Boolean
-                    mapTypeControl: true, //Boolean
-                    scaleControl: true, //Boolean
-                    streetViewControl: true, //Boolean
-                    overviewMapControl: false //Boolean
+                {
+                    address: address,
+                    // address: "Guayaquil, Ecuador",
+                    html: name,
+                    icon: {
+                        image: "images/gmap_pin_grey.png",
+                        iconsize: [26, 46],
+                        iconanchor: [12,46]
+                    }
                 }
-            }]
+            ],
         });
     }
 
@@ -52,7 +54,7 @@ jQuery(document).ready(function () {
             pagination: false,
             navigationText: ['<i class="fa fa-angle-left fa-3x"></i>', '<i class="fa fa-angle-right fa-3x"></i>'],
             // "singleItem:true" is a shortcut for:
-            // items : 1, 
+            // items : 1,
             // itemsDesktop : false,
             // itemsDesktopSmall : false,
             // itemsTablet: false,
@@ -71,7 +73,7 @@ jQuery(document).ready(function () {
             responsiveRefreshRate: 200,
             responsiveBaseWidth: window,
             // "singleItem:true" is a shortcut for:
-            // items : 1, 
+            // items : 1,
             // itemsDesktop : false,
             // itemsDesktopSmall : false,
             // itemsTablet: false,
@@ -88,7 +90,7 @@ jQuery(document).ready(function () {
             startheight: 449,
             autoHeight:"off",
 			fullScreenAlignForce:"off",
-            
+
             onHoverStop: "on",
 
             thumbWidth: 100,
@@ -99,12 +101,12 @@ jQuery(document).ready(function () {
             hideBulletsOnMobile: "on",
             hideArrowsOnMobile: "on",
             hideThumbsUnderResoluition: 0,
-			
+
 			hideThumbs:0,
 			hideTimerBar:"on",
 
 			keyboardNavigation:"on",
-			
+
             navigationType: "none",
             navigationArrows: "solo",
             navigationStyle: "round",
@@ -157,25 +159,25 @@ jQuery(document).ready(function () {
 
         jQuery("a[rel^='prettyPhoto']").prettyPhoto({
             social_tools: false,
-            animation_speed: 'normal', // fast/slow/normal 
+            animation_speed: 'normal', // fast/slow/normal
             slideshow: 5000, // false OR interval time in ms
             autoplay_slideshow: false, // true/false
-            opacity: 0.80, // Value between 0 and 1 
-            show_title: true, // true/false            
+            opacity: 0.80, // Value between 0 and 1
+            show_title: true, // true/false
 			allow_resize: true, // Resize the photos bigger than viewport. true/false
             default_width: 500,
             default_height: 344,
             counter_separator_label: '/', // The separator for the gallery counter 1 "of" 2
             theme: 'pp_default', // light_rounded / dark_rounded / light_square / dark_square / facebook
-            horizontal_padding: 20, // The padding on each side of the picture 
+            horizontal_padding: 20, // The padding on each side of the picture
             hideflash: false, // Hides all the flash object on a page, set to TRUE if flash appears over prettyPhoto
             wmode: 'opaque', // Set the flash wmode attribute
-            autoplay: true, // Automatically start videos: True/False 
+            autoplay: true, // Automatically start videos: True/False
             modal: false, // If set to true, only the close button will close the window
-            deeplinking: true, // Allow prettyPhoto to update the url to enable deeplinking. 
-            overlay_gallery: true, // If set to true, a gallery will overlay the fullscreen image on mouse over 
-            keyboard_shortcuts: true, // Set to false if you open forms inside prettyPhoto 
-            changepicturecallback: function () {}, // Called everytime an item is shown/changed 
+            deeplinking: true, // Allow prettyPhoto to update the url to enable deeplinking.
+            overlay_gallery: true, // If set to true, a gallery will overlay the fullscreen image on mouse over
+            keyboard_shortcuts: true, // Set to false if you open forms inside prettyPhoto
+            changepicturecallback: function () {}, // Called everytime an item is shown/changed
             callback: function () {}, // Called when prettyPhoto is closed
         });
     }
@@ -221,25 +223,25 @@ jQuery(document).ready(function () {
         }, '2000', 'swing');
     })
 
-	
+
     //niceScroll
     if (jQuery().niceScroll) {
          $(".parallax-effect").niceScroll();
 		 };
-		 
+
 
     // Isotope
- window.onload = function () {	
+ window.onload = function () {
     if (jQuery().isotope) {
         // cache container
-        var jQuerycontainer1 = jQuery('.room-list');
-        // initialize isotope
-        jQuerycontainer1.isotope({
-            filter: '*',
-            masonry: {
-                columnWidth: 1
-            }
-        });
+        // var jQuerycontainer1 = jQuery('.room-list');
+        // // initialize isotope
+        // jQuerycontainer1.isotope({
+        //     filter: '*',
+        //     masonry: {
+        //         columnWidth: 1
+        //     }
+        // });
 
         // filter items when filter link is clicked
         jQuery('#filters a').click(function () {
@@ -331,7 +333,7 @@ jQuery(document).ready(function () {
     }
 
 
-    // Reservation Form	
+    // Reservation Form
     //jQueryUI - Datepicker
     if (jQuery().datepicker) {
         jQuery('#checkin').datepicker({
@@ -390,6 +392,17 @@ jQuery(document).ready(function () {
             total = +opt1.val() + +opt2.val();
             jQuery(".guests-select .total").html(total);
         });
+
+
+});
+
+
+jQuery(document).ready(function(){
+
+  if(window.location.pathname == '/listings'){
+    jQuery('#reservation-form').css({'margin-top': '10px'})
+    // jQuery('.room-list .isotope').css({'height': '380px'})
+  }
 
 
 });

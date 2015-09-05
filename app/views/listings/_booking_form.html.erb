@@ -1,0 +1,33 @@
+<section id="reservation-form" class="mt50 clearfix">
+  <div class="col-sm-12 col-md-4">
+    <%= form_tag(listings_path, class: "reservation-vertical clearfix", id: "reservationform") do %>
+    <!-- <form class="reservation-vertical clearfix" role="form" method="post" action="php/reservation.php" name="reservationform" id="reservationform"> -->
+      <h2 class="lined-heading"><span>Reservation</span></h2>
+      <div class="price">
+        <%= content_tag :h4, @listing.name %>
+        <div class="price"><%= number_to_currency @listing.price, unit: "₦", separator: '.' %></div>
+      <div id="message"></div>
+      <!-- Error message display -->
+      <% unless current_user %>
+      <div class="form-group">
+        <label for="email" accesskey="E">E-mail</label>
+        <%= text_field :email, params[:email], placeholder: 'Please enter your email', class: 'form-control'%>
+      </div>
+      <% end %>
+      <div class="form-group">
+        <label for="checkin">Check-in</label>
+        <div class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="right" data-content="Check-In is from 11:00"> <i class="fa fa-info-circle fa-lg"> </i> </div>
+        <i class="fa fa-calendar infield"></i>
+        <%= text_field :checkin, params[:checkin], id: 'checkin', class: 'form-control', placeholder: 'Check-in date'%>
+      </div>
+      <div class="form-group">
+        <label for="checkout">Check-out</label>
+        <div class="popover-icon" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="right" data-content="Check-out is from 12:00"> <i class="fa fa-info-circle fa-lg"> </i> </div>
+        <i class="fa fa-calendar infield"></i>
+          <%= text_field :checkout, params[:checkout], id: 'checkout', class: 'form-control', placeholder: 'Check-out date'%>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Book Now</button>
+    <!-- </form> -->
+    <% end %>
+  </div>
+</section>
