@@ -23,6 +23,9 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %><br>
 
+    <%= f.label :status %><br>
+    <%= f.select :status, [['open', 'open'], ['close', 'close']] %><br>
+
     <%= f.label :price%><br>
     <%= f.text_field :price %><br>
 
@@ -42,6 +45,3 @@
     <%= f.submit %>
   </div>
 <% end %>
-
-
-
