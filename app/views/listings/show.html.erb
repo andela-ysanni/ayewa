@@ -1,9 +1,28 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
+  <div class="row">
+    <!-- Slider -->
+    <section class="room-slider standard-slider mt50">
+      <div class="col-sm-12 col-md-8">
+        <div id="owl-standard" class="owl-carousel">
+          <% @images.each do |p| %>
+            <div class="item">
+                <%= content_tag :a, p.name_url, data: {rel: 'prettyPhoto[gallery1]'} do %>
+                  <%= image_tag p.name_url, class: 'img-responsive' %>
+                <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
 
-<% @images.each do |p| %>
-    <%= image_tag p.name_url(:thumbnail) %>
-<% end %>
+    <%= render partial: 'listings/booking_form'%>
+    <%= render partial: 'listings/listing_room_detail' %>
+  </div>
+</div>
 
+<% if @listing.user == current_user %>
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
+<% end %>

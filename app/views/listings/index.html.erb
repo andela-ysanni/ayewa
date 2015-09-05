@@ -1,32 +1,65 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Listings</h1>
+<!-- Parallax Effect -->
+<script type="text/javascript">$(document).ready(function(){$('#parallax-pagetitle').parallax("50%", -0.55);});</script>
 
-<%= render 'search' %>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @listings.each do |listing| %>
-    <div>
-      <div><%= listing.name %></div>
-      <div><%= listing.address %></div>
-      <div><%= listing.location %></div>
-      
-      <tr>
-        <td><%= link_to 'Show', listing %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<section class="parallax-effect">
+  <div id="parallax-pagetitle" style="background-image: url(<%= image_path('parallax-01.jpg') %>);">
+    <div class="color-overlay">
+      <!-- Page title -->
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <ol class="breadcrumb">
+              <li><%= link_to 'Home', root_path%></li>
+              <li class="active">Listings</li>
+            </ol>
+            <h1>Listings<%#= all_listings_or_search %></h1>
+          </div>
+        </div>
+      </div>
     </div>
-    <% end %>
-  </tbody>
-</table>
+  </div>
+</section>
 
-<br>
+<!-- Filter -->
+<%= render partial: 'layouts/search' %>
 
-<%= link_to 'New Listing', new_listing_path %>
+<!-- Rooms -->
+<section class="rooms mt100">
+  <div class="container">
+    <div class="row room-list fadeIn appear">
+      <!-- Room -->
+      <% @listings.each do |listing|%>
+      <%# 12.times do %>
+        <div class="col-sm-4">
+          <div class="room-thumb"><%= image_tag listing.images[0].name_url, alt: 'room 1', class: 'img-responsive' %>
+            <div class="mask">
+              <div class="main">
+                <%= content_tag :h5, listing.name%>
+                <%#= listing.name %>
+                <!-- <h5>Double bedroom</h5> -->
+                <div class="price"><%= number_to_currency listing.price, unit: "₦", separator: '.' %></div>
+              </div>
+              <div class="content">
+                <p><span><%= listing.description %></p>
+                <div class="row">
+                  <div class="col-xs-6">
+                    <ul class="list-unstyled">
+                      <% listing.amenities.each do |amenity|%>
+                      <li><i class="fa fa-check-circle"></i><%= amenity.name%></li>
+                      <% end %>
+                    </ul>
+                  </div>
+
+                </div>
+                <%= link_to( 'Hook me up!', listing_path(listing) ,class: 'btn btn-primary btn-block')%>
+                <!-- <a href="room-detail.html" class="btn btn-primary btn-block">Book Now</a> </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
