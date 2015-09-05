@@ -1,8 +1,8 @@
 @charset "utf-8";
 /* Table of contents - Starhotel: Main Theme CSS by Slashdown
-====================================================  
+====================================================
 */
-/* Basic Styles 
+/* Basic Styles
 -------------------------------------------------- */
 	/* Headings */
 	/* Fonts */
@@ -11,7 +11,7 @@
 	/* Buttons */
 	/* Image Hover Zoom */
 	/* Grid */
-	
+
 /* Top Header
 -------------------------------------------------- */
 	/* Items */
@@ -106,7 +106,7 @@
 	/* Isotope */
 	/* Gmap */
 
-/* Basic Styles 
+/* Basic Styles
 -------------------------------------------------- */
 body {
 	overflow-x: hidden;
@@ -393,7 +393,7 @@ img.zoom-img:hover {
 	max-width: 1170px;
 	margin: 0 auto;
 	background: #fff;
-	box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.2);	
+	box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.2);
 }
 /* Background options */
 .pattern-1 {
@@ -591,7 +591,7 @@ header nav {
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
 	background-color: #fff;
-}	
+}
 .navbar-nav .dropdown-menu  {
 	border-top: 2px solid;
 	font-size: 13px;
@@ -1601,7 +1601,7 @@ footer {
 	background: #3c3c3c;
 	font-size: 12px;
 	padding: 50px 0 0 0;
-	margin-top: 100px;
+	/*margin-top: 100px;*/
 }
 footer a {
 	color: #c1c1c1;

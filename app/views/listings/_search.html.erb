@@ -1,0 +1,7 @@
+<%= form_tag(listings_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+    <div class="input-append">
+      <%= text_field_tag :name, params[:name], class: "span2", placeholder: "Apartment Name" %>
+      <%= text_field_tag :location, params[:location], class: "span2", placeholder: "Apartment Location" %>
+      <button class="btn" type="submit">Search<i class="icon-search"></i></button>
+    </div>
+<% end %>

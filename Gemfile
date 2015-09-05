@@ -30,8 +30,6 @@ gem 'mini_magick', '~> 4.2.10'
  gem 'carrierwave'
  gem 'figaro'
 
-# gem 'carrierwave'
-
 gem 'jquery-fileupload-rails'
 
 # Use Unicorn as the app server

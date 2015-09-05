@@ -22,3 +22,6 @@ db/*.sqlite3-journal
 
 # Ignore application configuration
 /config/application.yml
+
+app/codesnip
+public/uploads/*

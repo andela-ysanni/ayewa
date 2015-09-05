@@ -1,4 +1,4 @@
-<h1>Sign Up</h1>
+<h1>Update Up</h1>
 
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
@@ -32,9 +32,6 @@
     <%= f.label :address %><br />
     <%= f.text_area :address %>
   </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p class="button"><%= f.submit %></p>
+
+  <p class="button"><%= f.submit  %></p>
 <% end %>

@@ -1,11 +1,12 @@
 class ListingsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :listing_params, only: [:create, :update]
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :set_search_or_index, only: [:index]
 
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
   end
 
   # GET /listings/1
@@ -28,6 +29,8 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
+    @listing.user = current_user
+
     respond_to do |format|
       if @listing.save
           params[:images]['name'].each do |a|
@@ -68,6 +71,14 @@ class ListingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
       @listing = Listing.find(params[:id])
+    end
+
+    def set_search_or_index
+      if params[:name] || params[:location]
+        @listings = Listing.search_by(name: params[:name], location: params[:location])
+      else
+        @listings = Listing.all
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
