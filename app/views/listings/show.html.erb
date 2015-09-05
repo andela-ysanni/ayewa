@@ -21,8 +21,3 @@
     <%= render partial: 'listings/listing_room_detail' %>
   </div>
 </div>
-
-<% if @listing.user == current_user %>
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
-<%= link_to 'Back', listings_path %>
-<% end %>
