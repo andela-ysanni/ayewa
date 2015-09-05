@@ -1,0 +1,29 @@
+<!-- Header -->
+<header>
+  <!-- Navigation -->
+  <div class="navbar yamm navbar-default" id="sticky">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" class="navbar-toggle"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a href="index.html" class="navbar-brand">
+        <!-- Logo -->
+        <div id="logo"><%= image_tag('logo-default.png', id: 'default-logo', style: "height: 44px")%><%= image_tag('logo-retina.png', id: 'retina-logo')%></div>
+        </a> </div>
+      <div id="navbar-collapse-grid" class="navbar-collapse collapse">
+
+        <ul class="nav navbar-nav pull-left">
+          <li class="dropdown active"> <a href="index.html">Home</a>
+          </li>
+          <li> <a href="gallery.html">Gallery</a></li>
+          <li class="dropdown"> <a href="#" data-toggle="dropdown" class="dropdown-toggle js-activated">Contact<b class="caret"></b></a></li>
+        </ul>
+
+        <ul class="nav navbar-nav pull-right">
+          <li class="dropdown active"> <a href="index.html">Login</a></li>
+          <li> <a href="gallery.html">Signup</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</header>
