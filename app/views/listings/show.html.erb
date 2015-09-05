@@ -2,7 +2,7 @@
 
 
 <% @images.each do |p| %>
-    <%= image_tag p.name_url %>
+    <%= image_tag p.name_url(:thumbnail) %>
 <% end %>
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |

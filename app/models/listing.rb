@@ -1,10 +1,14 @@
 class Listing < ActiveRecord::Base
+
+   default_scope {order('created_at DESC')}
+   scope :open, -> { where status: 'open' }
+   scope :close, -> { where status: 'close' }
   has_many :amenities
   belongs_to :user
   has_many :images, :dependent => :destroy
   accepts_nested_attributes_for :images
 
-  enum status: [:opened, :closed]
+
 
   def self.search_by(name: nil, location: nil)
     if name and location
@@ -17,4 +21,5 @@ class Listing < ActiveRecord::Base
       all
     end
   end
+
 end
