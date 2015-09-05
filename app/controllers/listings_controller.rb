@@ -11,6 +11,7 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @images = @listing.images
   end
 
   # GET /listings/new
@@ -27,19 +28,14 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
-    # if @listing.image
     respond_to do |format|
       if @listing.save
-
-        # params[:listing][:images].each{
-        #   @listing.images.create()
-        # }
-
-        format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
-        format.json { render :show, status: :created, location: @listing }
+          params[:images]['name'].each do |a|
+          @image_params = @listing.images.create!(:name => a)
+          format.html { redirect_to @listing, notice: 'New listing had been successfully created.' }
+        end
       else
-        format.html { render :new }
-        format.json { render json: @listing.errors, status: :unprocessable_entity }
+        format.html { render action: 'new' }
       end
     end
   end
@@ -76,7 +72,8 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :location, :address, :status, :description, :price, :latitude, :longitude, :images, :amenities_id, :user_id)
+      params.require(:listing).permit(:name, :location, :address, :status, :description, :price, :latitude,
+                                      :longitude, :amenities_id, :user_id, images_attributes: [:id, :listing_id, :name])
     end
 
 end

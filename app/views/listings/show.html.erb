@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+
+<% @images.each do |p| %>
+    <%= image_tag p.name_url %>
+<% end %>
+
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
